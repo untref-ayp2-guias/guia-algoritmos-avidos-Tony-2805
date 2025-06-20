@@ -6,5 +6,23 @@ type Tarea struct {
 }
 
 func Ejercicio2(tareas []Tarea) {
-	panic("No implementado")
+	for i := 0; i < len(tareas); i++ {
+		interCambiar(tareas, i)
+	}
+}
+
+func interCambiar(t []Tarea, indice int) {
+	indiceMin := indice
+	for k := indiceMin + 1; k < len(t); k++ {
+		if t[k].Tiempo < t[indiceMin].Tiempo {
+			indiceMin = k
+		}
+	}
+
+	if indiceMin != indice {
+		aux := t[indice]
+
+		t[indice] = t[indiceMin]
+		t[indiceMin] = aux
+	}
 }
